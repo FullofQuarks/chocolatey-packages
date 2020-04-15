@@ -3,7 +3,7 @@
   <metadata>
     <id>hyperspace-desktop</id>
     <version>1.1.0</version>
-    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages</packageSourceUrl>
+    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/hyperspace</packageSourceUrl>
     <owners>FullofQuarks</owners>
     <title>Hyperspace Desktop (Install)</title>
     <authors>Marquis Kurt, Travis Kohlbeck, Audrey Maxwell</authors>
