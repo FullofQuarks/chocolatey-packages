@@ -3,13 +3,12 @@
   <metadata>
     <id>hyperspace-desktop</id>
     <version>1.1.0</version>
-    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/hyperspace</packageSourceUrl>
+    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/hyperspace</packageSourceUrl>
     <owners>FullofQuarks</owners>
     <title>Hyperspace Desktop</title>
     <authors>Marquis Kurt, Travis Kohlbeck, Audrey Maxwell</authors>
     <projectUrl>https://hyperspace.marquiskurt.net/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/hyperspacedev/hyperspace/master/desktop/app.iconset/icon_128%402x.png</iconUrl>
-    <copyright>2020</copyright>
     <licenseUrl>https://raw.githubusercontent.com/hyperspacedev/hyperspace/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/hyperspacedev/hyperspace</projectSourceUrl>
