@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/hyperspacedev/hyperspace/releases/download/v1.1.0/Hyperspace.Desktop.Setup.1.1.0.exe'
+$url        = 'https://github.com/hyperspacedev/hyperspace/releases/download/v1.1.1/Hyperspace.Desktop.Setup.1.1.1.exe'
 $packageName = 'Hyperspace'
 
 
@@ -10,7 +10,7 @@ $packageArgs = @{
   fileType      = 'EXE'
   url           = $url
   softwareName  = 'hyperspace*'
-  checksum      = 'd2b41bb1675d3f7033b8a271c597717f14ca9574bf1bc2b726522546ca2069dd33dfff1623e27ff3c6c985c01866527725312b58afcad7c503b90bd865eb137c'
+  checksum      = '1954951aa6f93449918c4f217c3e9b1cf52b45495998a3054c156ec4e0a423edb274f69976c2b95a61696e256a7ec6592676aac9a1988bd5fc31b974d588e3a3'
   checksumType  = 'sha512'
   validExitCodes= @(0)
 }
