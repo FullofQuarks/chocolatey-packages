@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ledger</id>
+    <version>3.1.3</version>
+    <title>ledger</title>
+    <authors>John Wiegley</authors>
+    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-ledger</packageSourceUrl>
+    <owners>Abdurrahman Aborazmeh, belidzs, FullofQuarks</owners>
+    <licenseUrl>https://www.gnu.org/licenses/bsd.html</licenseUrl>
+    <projectUrl>http://ledger-cli.org/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Ledger is a powerful, double-entry accounting system that is accessed from the UNIX command-line. Ledger, begun in 2003, is written by John Wiegley and released under the BSD license. It has also inspired several ports to other languages.</description>
+    <summary>A double-entry accounting system</summary>
+    <copyright>Copyright (c) 2003-2009, John Wiegley</copyright>
+    <tags>ledger accounting plaintextaccounting bookkeeping</tags>
+    <releaseNotes>https://github.com/ledger/ledger/releases</releaseNotes>
+    <projectSourceUrl>https://github.com/ledger/ledger</projectSourceUrl>
+    <docsUrl>http://ledger-cli.org/3.0/doc/ledger3.html</docsUrl>
+    <mailingListUrl>https://groups.google.com/d/forum/ledger-cli</mailingListUrl>
+    <bugTrackerUrl>http://bugs.ledger-cli.org/</bugTrackerUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
+
