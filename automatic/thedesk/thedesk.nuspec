@@ -8,7 +8,7 @@
     <title>TheDesk</title>
     <authors>Cutls P</authors>
     <projectUrl>https://thedesk.top</projectUrl>
-    <iconUrl>https://cdn.statically.io/gh/cutls/TheDesk/master/app/img/icons/icon-144x144.png</iconUrl>
+    <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/thedesk.png</iconUrl>
     <licenseUrl>https://raw.githubusercontent.com/cutls/TheDesk/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/cutls/TheDesk</projectSourceUrl>
