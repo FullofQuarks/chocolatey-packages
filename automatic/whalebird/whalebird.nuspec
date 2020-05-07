@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>whalebird</id>
+    <version>4.1.0</version>
+    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/whalebird</packageSourceUrl>
+    <owners>FullofQuarks</owners>
+    <title>Whalebird</title>
+    <authors>h3poteto</authors>
+    <projectUrl>https://whalebird.social/</projectUrl>
+    <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/whalebird.png</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/h3poteto/whalebird-desktop/master/LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/h3poteto/whalebird-desktop</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/h3poteto/whalebird-desktop/issues</bugTrackerUrl>
+    <tags>whalebird mastodon pleroma misskey fediverse</tags>
+    <summary>Whalebird is a mastodon client for desktop application.</summary>
+    <description>Whalebird is a Mastodon, Pleroma, and Misskey client for desktop application</description>
+    <releaseNotes>
+    ## Added
+
+-   [#1395](https://github.com/h3poteto/whalebird-desktop/pull/1395)  New Crowdin translations
+-   [#1394](https://github.com/h3poteto/whalebird-desktop/pull/1394)  refs  [#1281](https://github.com/h3poteto/whalebird-desktop/issues/1281)  Handle emoji reactions in web socket
+-   [#1393](https://github.com/h3poteto/whalebird-desktop/pull/1393)  refs  [#1281](https://github.com/h3poteto/whalebird-desktop/issues/1281)  Add emoji reaction notification
+-   [#1392](https://github.com/h3poteto/whalebird-desktop/pull/1392)  New translations translation.json (Polish)
+-   [#1391](https://github.com/h3poteto/whalebird-desktop/pull/1391)  refs  [#1281](https://github.com/h3poteto/whalebird-desktop/issues/1281)  Add reaction buttion and refresh after reaction
+-   [#1389](https://github.com/h3poteto/whalebird-desktop/pull/1389)  refs  [#1281](https://github.com/h3poteto/whalebird-desktop/issues/1281)  Send emoji reactions to statuses
+
+## Changed
+
+-   [#1375](https://github.com/h3poteto/whalebird-desktop/pull/1375)  Bump eslint from 5.16.0 to 6.8.0
+-   [#1401](https://github.com/h3poteto/whalebird-desktop/pull/1401)  Bump @typescript-eslint/eslint-plugin from 2.24.0 to 2.30.0
+-   [#1383](https://github.com/h3poteto/whalebird-desktop/pull/1383)  Bump vue-router from 3.1.3 to 3.1.6
+-   [#1380](https://github.com/h3poteto/whalebird-desktop/pull/1380)  Bump eslint-plugin-node from 11.0.0 to 11.1.0
+-   [#1379](https://github.com/h3poteto/whalebird-desktop/pull/1379)  Bump cfonts from 2.4.6 to 2.8.1
+-   [#1400](https://github.com/h3poteto/whalebird-desktop/pull/1400)  Bump babel-jest from 25.3.0 to 25.4.0
+-   [#1388](https://github.com/h3poteto/whalebird-desktop/pull/1388)  Bump @types/node from 13.11.1 to 13.13.2
+-   [#1386](https://github.com/h3poteto/whalebird-desktop/pull/1386)  Bump @babel/plugin-proposal-object-rest-spread from 7.9.0 to 7.9.5
+-   [#1385](https://github.com/h3poteto/whalebird-desktop/pull/1385)  Bump axios from 0.19.1 to 0.19.2
+-   [#1384](https://github.com/h3poteto/whalebird-desktop/pull/1384)  Bump webpack-dev-server from 3.10.1 to 3.10.3
+-   [#1382](https://github.com/h3poteto/whalebird-desktop/pull/1382)  Bump css-loader from 3.2.0 to 3.5.2
+-   [#1377](https://github.com/h3poteto/whalebird-desktop/pull/1377)  Bump url-loader from 3.0.0 to 4.1.0
+-   [#1376](https://github.com/h3poteto/whalebird-desktop/pull/1376)  Bump vue-click-outside from 1.0.7 to 1.1.0
+-   [#1374](https://github.com/h3poteto/whalebird-desktop/pull/1374)  Bump sanitize-html from 1.22.0 to 1.23.0
+-   [#1373](https://github.com/h3poteto/whalebird-desktop/pull/1373)  Bump eslint-plugin-html from 6.0.0 to 6.0.2
+-   [#1372](https://github.com/h3poteto/whalebird-desktop/pull/1372)  Bump @vue/test-utils from 1.0.0-beta.32 to 1.0.0-beta.33
+-   [#1370](https://github.com/h3poteto/whalebird-desktop/pull/1370)  Bump eslint-plugin-standard from 4.0.0 to 4.0.1
+-   [#1368](https://github.com/h3poteto/whalebird-desktop/pull/1368)  Bump chalk from 3.0.0 to 4.0.0
+-   [#1369](https://github.com/h3poteto/whalebird-desktop/pull/1369)  Bump electron-mock-ipc from 0.3.2 to 0.3.3
+-   [#1387](https://github.com/h3poteto/whalebird-desktop/pull/1387)  Bump megalodon version to 3.1.1
+
+## Fixed
+
+-   [#1398](https://github.com/h3poteto/whalebird-desktop/pull/1398)  closes  [#1397](https://github.com/h3poteto/whalebird-desktop/issues/1397)  Fix opened user's timeline in sidebar
+-   [#1396](https://github.com/h3poteto/whalebird-desktop/pull/1396)  refs  [#1390](https://github.com/h3poteto/whalebird-desktop/issues/1390)  Fix list memberships parser when add or remove list member</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
