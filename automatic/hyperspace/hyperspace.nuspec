@@ -8,7 +8,7 @@
     <title>Hyperspace Desktop</title>
     <authors>Marquis Kurt, Travis Kohlbeck, Audrey Maxwell</authors>
     <projectUrl>https://hyperspace.marquiskurt.net/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/FullofQuarks/chocolatey-packages/master/icons/hyperspace-desktop.png</iconUrl>
+    <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/hyperspace-desktop.png</iconUrl>
     <licenseUrl>https://raw.githubusercontent.com/hyperspacedev/hyperspace/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/hyperspacedev/hyperspace</projectSourceUrl>
