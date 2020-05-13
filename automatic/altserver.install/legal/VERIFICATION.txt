@@ -1,0 +1,21 @@
+﻿
+VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+ 
+The embedded software have been downloaded from the listed download
+location on https://altstore.io/
+and can be verified by doing the following:
+
+1. Download the following (as seen on https://altstore.io/):
+  <https://f000.backblazeb2.com/file/altstore/altinstaller.zip>
+2. Unzip the archive
+3. Get the checksum of the MSI file, 'AltInstaller.msi', using one of the following methods:
+  - Using powershell function 'Get-FileHash'
+  - Use chocolatey utility 'checksum.exe'
+4. The checksum should match the following:
+
+  checksum type: sha512
+  checksum: f69ae044b37f916c601af4d163605ef5af88715979d557775e91360de09e868d85ee30827478913d9c1189eefe1f25d42ace5465278cd2f6c394166588c775c6
+
+The file 'LICENSE.txt' has been obtained from <https://github.com/rileytestut/AltStore/blob/master/LICENSE>
