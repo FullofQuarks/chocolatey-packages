@@ -6,7 +6,7 @@
     <title>ledger</title>
     <authors>John Wiegley</authors>
     <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/ledger</packageSourceUrl>
-    <owners>FullofQuarks</owners>
+    <owners>FullofQuarks, belidzs</owners>
     <licenseUrl>https://www.gnu.org/licenses/bsd.html</licenseUrl>
     <projectUrl>http://ledger-cli.org/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
