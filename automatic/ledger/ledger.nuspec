@@ -18,7 +18,7 @@
     <projectSourceUrl>https://github.com/ledger/ledger</projectSourceUrl>
     <docsUrl>http://ledger-cli.org/3.0/doc/ledger3.html</docsUrl>
     <mailingListUrl>https://groups.google.com/d/forum/ledger-cli</mailingListUrl>
-    <bugTrackerUrl>http://bugs.ledger-cli.org/</bugTrackerUrl>
+    <bugTrackerUrl>https://github.com/ledger/ledger/issues</bugTrackerUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
