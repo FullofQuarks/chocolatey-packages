@@ -1,11 +1,11 @@
-$ErrorActionPreference = 'Stop';
+﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName = 'TheDesk'
 
-$url        = 'https://github.com/cutls/TheDesk/releases/download/v21.0.0/TheDesk-setup-ia32.exe'
-$url64      = 'https://github.com/cutls/TheDesk/releases/download/v21.0.0/TheDesk-setup.exe'
-$checksum   = 'a969bc8e4a687197000417691f65f64a155bf5f05f404ea96c2f3e67b07a4e6d74a9bb1920bd8f24690af85a96c476a23e298cae884675cbffd1f235428db0e9'
-$checksum64 =  '101a23ae1526441f76d8693e778cf90419432802ed0b1de6e06b6c95597c2fca470f10f4738355108d1df5b9c1f31088570a82210b02ad8ff90bb0e86ef55a35'
+$url        = 'https://github.com/cutls/TheDesk/releases/download/v21.0.1/TheDesk-setup-ia32.exe'
+$url64      = 'https://github.com/cutls/TheDesk/releases/download/v21.0.1/TheDesk-setup.exe'
+$checksum   = '5f4b3edefc4086c3810456b86168d3f802e96d61101269333e3159c375c1978a48b1820bec461f508d6eaeac9bf8966d0701365a7e406fe47161b4427bee2af0'
+$checksum64 =  '11eca0cba96b4fbae98fca599cdc2282b9769faf125239121c7a83d395bf2a4cdbe9a69413471244418184d7ae60838e4a68b7a16609e877944f1e9ceb7c9e04'
 
 $packageArgs = @{
   packageName   = $packageName
