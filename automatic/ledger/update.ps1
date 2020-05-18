@@ -2,11 +2,14 @@ Import-Module au
 
 $releases = 'https://github.com/FullofQuarks/Windows-Ledger-Binaries/releases'
 
+function global:au_BeforeUpdate {
+    $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL
+}
 function global:au_SearchReplace {
     @{
         "tools\chocolateyinstall.ps1" = @{
             "(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL)'"
-            "(^*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'" 
+            "(checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'" 
         }
     }
 }
@@ -25,4 +28,4 @@ function global:au_GetLatest {
     }
 }
 
-Update-Package
+update -ChecksumFor none

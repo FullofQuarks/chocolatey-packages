@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ledger</id>
-    <version>3.2.0</version>
+    <version>3.2.1</version>
     <title>ledger</title>
     <authors>John Wiegley</authors>
     <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/ledger</packageSourceUrl>
