@@ -2,13 +2,18 @@ Import-Module au
 
 $releases = 'https://github.com/cutls/TheDesk/releases'
 
+function global:au_BeforeUpdate {
+    $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL
+    $Latest.Checksum64 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL64
+}
+
 function global:au_SearchReplace {
     @{
         "tools\chocolateyinstall.ps1" = @{
             "(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL)'"
-            "(^[$]url64\s*=\s*)('.*')"  = "`${1} $($Latest.URL64)"
-            "(^*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'" 
-            "(?i)(checksum64:).*" = "`${1} $($Latest.Checksum64)"
+            "(^[$]url64\s*=\s*)('.*')"  = "`$1'$($Latest.URL64)'"
+            "(^[$]checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'" 
+            "(^[$]checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'" 
         }
     }
 }
@@ -32,4 +37,4 @@ function global:au_GetLatest {
     }
 }
 
-Update-Package
+update -ChecksumFor none
