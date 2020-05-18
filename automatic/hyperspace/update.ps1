@@ -2,11 +2,15 @@ Import-Module au
 
 $releases = 'https://github.com/hyperspacedev/hyperspace/releases'
 
+function global:au_BeforeUpdate {
+    $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL
+}
+
 function global:au_SearchReplace {
     @{
         "tools\chocolateyinstall.ps1" = @{
             "(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL)'"
-            "(^*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'" 
+            "(^[$]checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'" 
         }
     }
 }
@@ -21,8 +25,7 @@ function global:au_GetLatest {
     return @{
         URL = $sourceUrl
         Version = $version
-        ChecksumType32 = 'sha512'
     }
 }
 
-Update-Package
+update -ChecksumFor none
