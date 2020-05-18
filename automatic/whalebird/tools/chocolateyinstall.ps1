@@ -2,20 +2,22 @@
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName = 'whalebird'
 
-$url        = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.1.0/Whalebird-4.1.0-windows-ia32.exe'
-$url64      = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.1.0/Whalebird-4.1.0-windows-x64.exe'
+$url32        = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.1.1/Whalebird-4.1.1-windows-ia32.exe'
+$url64      = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.1.1/Whalebird-4.1.1-windows-x64.exe'
+$checksum   = 'a8d098fbbdfca48dc1a03ba89dc5efd3b93cc3eabf26764b0235fac91ed39d1557022c5f57881d8329a22e506559d16492cc6c5e1b4dcc19806fa8e188821eb8'
+$checksum64  = '3d289f045bb52a55de1de9037225e1d68004c2c2324ee1cfceb401580eeebd039c384c351a3a90abd2d9841eb79904fe0016bb3fe1464fc88ab8451856d57d25'
 
 $packageArgs = @{
   packageName   = $packageName
   unzipLocation = $toolsDir
   fileType      = 'EXE'
-  url           = $url
+  url           = $url32
   url64bit      = $url64
 
   softwareName  = 'whalebird*'
-  checksum      = '8770899321483bf164c8edd3d2e99ba01d6dc01d7d338342218ed5641ce7644e8c8a01070906e69d3b96709b208f1e52940227da8734fcce221c2c664a102439'
-  checksumType  = 'sha512'
-  checksum64    = '2fcfdc9b6851bf7065fa24288c56bd7102cad454d6f5faf149c8799c14328a054acfd472d87d0ea428408126c516b9fc568dc5ed644069b9a241471337dc1bde'
+  checksum      = $checksum
+  checksumType32  = 'sha512'
+  checksum64    = $checksum64
   checksumType64= 'sha512'
 
   silentArgs    = '/S'
