@@ -2,6 +2,10 @@
 
 param([string] $Name, [string] $ForcedPackages, [string] $Root = "$PSScriptRoot\automatic")
 
+# Set environment variables
+$Env:gist_id = Write-Host "Update all - $(Get-Date -Format "MM/dd/yyyy")"
+$Env:github_api_key = Get-Content .\api_key
+
 if (Test-Path $PSScriptRoot/update_vars.ps1) { . $PSScriptRoot/update_vars.ps1 }
 
 $Options = [ordered]@{
