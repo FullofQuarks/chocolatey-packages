@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <id>hyperspace</id>
+    <id>hyperspace-desktop</id>
     <version>1.1.1</version>
     <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/hyperspace</packageSourceUrl>
     <owners>FullofQuarks</owners>
