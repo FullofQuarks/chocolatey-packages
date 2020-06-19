@@ -1,7 +1,7 @@
 $packageName = 'openhardwaremonitor'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://openhardwaremonitor.org/files/openhardwaremonitor-v0.9.2.zip'
-$checksum = '43bb4739ebc5f76dc45af979ff38fd382956bea0ae5195ca5d8705208b77e46eb662cd49e4e9f67de4767482ea9b53b6d5cbf7dea183737843f0e3db767270f7'
+$url = 'https://openhardwaremonitor.org/files/openhardwaremonitor-v0.9.3.zip'
+$checksum = 'bd2dbde59841ba5012aa0599d3403e5cb20d71ffdf06052f30d4c2d4411b5d6058e6deea8f8366a301e541242837239fba5e1a87fcce2df40223cac445692538'
 $checksumType = 'sha512'
 
 Install-ChocolateyZipPackage -PackageName "$packageName" `
