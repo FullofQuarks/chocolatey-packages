@@ -3,7 +3,7 @@
   <metadata>
     <id>openhardwaremonitor</id>
     <title>Open Hardware Monitor</title>
-    <version>0.9.4</version>
+    <version>0.9.5</version>
     <authors>Michael Müller</authors>
     <owners>dtgm, FullofQuarks</owners>
     <summary>Open source software that monitors temperature sensors, fan speeds, voltages, load and clock speeds of a computer</summary>
