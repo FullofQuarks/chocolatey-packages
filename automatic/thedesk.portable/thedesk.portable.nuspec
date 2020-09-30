@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>thedesk.portable</id>
-    <version>21.2.2</version>
+    <version>21.2.4</version>
     <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/thedesk.portable</packageSourceUrl>
     <owners>FullofQuarks</owners>
     <title>TheDesk (Portable)</title>
