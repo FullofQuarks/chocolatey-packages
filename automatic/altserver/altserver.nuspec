@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>altserver</id>
-    <version>1.3.2</version>
+    <version>1.4.0</version>
     <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/altserver</packageSourceUrl>
     <owners>FullofQuarks</owners>
     <title>AltServer</title>
@@ -17,7 +17,7 @@
     <summary>AltServer provides AltStore to an iOS device. AltStore is an alternative app store for non-jailbroken iOS devices.</summary>
     <description>AltServer connects to an attached iOS device, to provide a developer-signed application AltStore. AltStore is an iOS application that allows you to sideload other apps (.ipa files) onto your iOS device with just your Apple ID. AltStore resigns apps with your personal development certificate and sends them to a desktop app, AltServer (this application), which installs the resigned apps back to your device using iTunes WiFi sync. To prevent apps from expiring, AltStore will also periodically refresh your apps in the background when on the same WiFi as AltServer.</description>
   <dependencies>
-    <dependency id="altserver.install" version="[1.3.2]" />
+    <dependency id="altserver.install" version="[1.4.0]" />
   </dependencies>
   </metadata>
 </package>
