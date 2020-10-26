@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>coolterm</id>
+    <version>1.8.0</version>
+    <owners>FullofQuarks</owners>
+    <title>CoolTerm</title>
+    <authors>Roger Meier</authors>
+    <projectUrl>https://freeware.the-meiers.org/#CoolTerm</projectUrl>
+    <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/coolterm.png</iconUrl>
+    <copyright>Copyright (c) 2007-2020 Roger Meier</copyright>
+    <tags>coolterm console serial emulator</tags>
+    <summary>CoolTerm is an easy-to-use terminal for communication with hardware connected to serial ports.</summary>
+    <description>CoolTerm is a simple serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals with a need to exchange data with hardware connected to serial ports such as servo controllers, robotic kits, GPS receivers, microcontrollers, etc.
+The features of CoolTerm include:
+- Capability of multiple concurrent connections if multiple serial ports are available.
+- Display of received data in plain text or hexadecimal format.
+- Special character handling.
+- Sending data via keypresses as well as a "Send String" dialog that supports data entry in plain text or hexadecimal format.
+- Sending data via copy-paste of text into the terminal window.
+- Sending of text files via dialog or drag-and-drop.
+- Capability of capturing received data to text/binary files.
+- Local echo of transmitted data.
+- Local echo of received data (loop back to sender).
+- Hardware (CTS, DTR) and software flow control (XON).
+- Visual line status indicators.
+- Capability of manually toggling line states of certain handshaking signals when hardware flow control is disabled.
+- Configurable character, line, and packet delays.
+- Capability of saving and retrieving connection options.
+- Scripting.
+- and more...</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
