@@ -2,10 +2,10 @@
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName = 'TheDesk'
 
-$url        = 'https://github.com/cutls/TheDesk/releases/download/v21.2.4/TheDesk-ia32.exe'
-$url64      = 'https://github.com/cutls/TheDesk/releases/download/v21.2.4/TheDesk.exe'
-$checksum   = '9540ffd8261fc4e3892ab424348b5607b51ac86cf0164a6b3e6206aa1499b3a830bdb1c34f3ec144f342e3dc0de08c00965310ad24a7262b777b503f0d01ec46'
-$checksum64 =  'd2b6106801ce30dff672130ef3657a40513b1fb9b84e8edb80f6199ecbaf48af8e7cefd7192b9f6c76e0e1be7509de8024087da9a9d40f0af7ac9aa21a632e68'
+$url        = 'https://github.com/cutls/TheDesk/releases/download/v21.3.0/TheDesk-ia32.exe'
+$url64      = 'https://github.com/cutls/TheDesk/releases/download/v21.3.0/TheDesk.exe'
+$checksum   = '6754edf7d909a2c9528b011caec8394d523acb4bf8be69b473b3bcdcee713064d149497386c62ef75a4194e88a93cde8d020b0c42d10866bf0f01cd40274ceae'
+$checksum64 =  'c5c27088eb9d0b3aba34577d0a5238c605dc721a6a3a1887e7218ac7dd2232bfd212cb9bc5d1559d43c8ed42c627aaf2934ad2daebffb8d628fb1fe102d42c34'
 
 $packageArgs = @{
   packageName   = $packageName

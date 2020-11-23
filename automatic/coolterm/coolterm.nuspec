@@ -6,7 +6,7 @@
     <owners>FullofQuarks</owners>
     <title>CoolTerm</title>
     <authors>Roger Meier</authors>
-    <projectUrl>https://freeware.the-meiers.org/#CoolTerm</projectUrl>
+    <projectUrl>https://freeware.the-meiers.org/</projectUrl>
     <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/coolterm.png</iconUrl>
     <copyright>Copyright (c) 2007-2020 Roger Meier</copyright>
     <tags>coolterm console serial emulator</tags>
