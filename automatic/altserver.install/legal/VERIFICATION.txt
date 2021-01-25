@@ -16,6 +16,6 @@ and can be verified by doing the following:
 4. The checksum should match the following:
 
   checksum type: sha512
-  checksum: e2580dafc4708a357560c9c49def854b7f9aa46fa04a11a0ce372c48627e9d39d850e2aac63fc319bdd8186e2b63d44d3a97e700d29be8fd8920fa244964d085
+  checksum: 9a9d58443f51d1986d1dc4d537295c556643700bb26046e5ba356acfd2c67a3033684ef0acaecd840b556573589dec1ae755c12315f65cc265ed0f5754f37d3f
 
 The file 'LICENSE.txt' has been obtained from <https://github.com/rileytestut/AltStore/blob/master/LICENSE>
