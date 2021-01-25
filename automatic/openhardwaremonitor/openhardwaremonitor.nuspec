@@ -3,7 +3,7 @@
   <metadata>
     <id>openhardwaremonitor</id>
     <title>Open Hardware Monitor</title>
-    <version>0.9.5</version>
+    <version>0.9.6</version>
     <authors>Michael Müller</authors>
     <owners>dtgm, FullofQuarks</owners>
     <summary>Open source software that monitors temperature sensors, fan speeds, voltages, load and clock speeds of a computer</summary>
@@ -15,7 +15,7 @@ Open Hardware Monitor supports most hardware monitoring chips found on todays ma
     <projectSourceUrl>https://github.com/openhardwaremonitor/openhardwaremonitor</projectSourceUrl>
     <docsUrl>https://openhardwaremonitor.org/documentation/</docsUrl>
     <tags>hardware monitor admin tools smart foss</tags>
-    <copyright>© 2020 Michael Möller</copyright>
+    <copyright>© 2021 Michael Möller</copyright>
     <licenseUrl>http://openhardwaremonitor.org/license/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/openhardwaremonitor.png</iconUrl>
