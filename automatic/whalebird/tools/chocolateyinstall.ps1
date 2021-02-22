@@ -2,10 +2,10 @@
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName = 'whalebird'
 
-$url32        = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.3.2/Whalebird-4.3.2-windows-ia32.exe'
-$url64      = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.3.2/Whalebird-4.3.2-windows-x64.exe'
-$checksum   = 'ac91e28e1acba99fb283cfb83f841da43741517d3c12652fa9ddd35acd9ef5516f6908546fa7f52271809d7eed093a06a7f6a1600c0decaebef52661502493d2'
-$checksum64  = '8e0ace065a6c33e77c2da334b906189729608ba5db11433bc8d0c676c69b1cc67dccf45d20befcc57fd021ff15af56ee60b6d0fdf8285e6bac966043e8aeda5c'
+$url32        = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.3.4/Whalebird-4.3.4-windows-ia32.exe'
+$url64      = 'https://github.com/h3poteto/whalebird-desktop/releases/download/4.3.4/Whalebird-4.3.4-windows-x64.exe'
+$checksum   = '1f9af16917bb29cd2c9460abed68d7918f9d6655cbf762f687588b1f1eb91d1208a810d8cec72dbf66b39850e16b41b3de099ef112e7da46e4aa09f80d2dbaa3'
+$checksum64  = '94017590aa2120a2a6dd2a71ea8d64bae842bf2c8907174e529e6fe97e7d544c7cc3c6896ad99fd8f98a93845af2aab6f7e7a4dc5a27cffa640fe491f2b6d700'
 
 $packageArgs = @{
   packageName   = $packageName
