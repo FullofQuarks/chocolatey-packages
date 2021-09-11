@@ -19,7 +19,7 @@ function global:au_GetLatest {
     $re = 'hledger-windows.zip'
     $url = $download_page.links | ? href -match $re | select -First 1 -expand href
     $sourceUrl = 'https://github.com' + $url
-    $version = ($url -split '\/' | select -Index 5).Substring(1)
+    $version = ($url -split '\/' | select -Index 5).Substring(0)
 
     return @{
         URL = $sourceUrl
