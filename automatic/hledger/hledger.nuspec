@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>hledger</id>
+    <version>1.22.2</version>
+    <packageSourceUrl>https://github.com/FullofQuarks/chocolatey-packages/tree/master/automatic/hledger</packageSourceUrl>
+    <owners>FullofQuarks</owners>
+    <title>hledger</title>
+    <authors>Simon Michael</authors>
+    <projectUrl>https://hledger.org/</projectUrl>
+    <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/hledger.png</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/simonmichael/hledger/master/LICENSE</licenseUrl>
+    <projectSourceUrl>https://github.com/simonmichael/hledger</projectSourceUrl>
+    <docsUrl>https://hledger.org/</docsUrl>
+    <tags>hledger plaintext accounting ledger personal finance</tags>
+    <summary>hledger is cross-platform accounting software for both power users and folks new to accounting. It's good for tracking money, time, investments, cryptocurrencies, inventory and more. </summary>
+    <description>**hledger** is cross-platform accounting software for both power users and folks new to accounting. It's good for tracking money, time, investments, cryptocurrencies, inventory and more. It is an actively maintained, largely compatible reimplementation of Ledger CLI with a particular focus on **ease of use** and **robustness**.</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
