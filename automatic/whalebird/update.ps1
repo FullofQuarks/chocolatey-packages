@@ -21,11 +21,11 @@ function global:au_SearchReplace {
 function global:au_GetLatest {
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 
-    $re = "windows"
-    $url = $download_page.links | ? href -match $re | select -First 2 -expand href
-    $sourceUrl = 'https://github.com' + $url[0]
-    $sourceUrl64 = 'https://github.com' + $url[1]
-    $version = ($url[0] -split '\/' | select -Index 5).Substring(0)
+    $url = $download_page.links | ? href -match "windows-ia32" | select -First 1 -expand href
+    $url64 = $download_page.links | ? href -match "windows-x64" | select -First 1 -expand href
+    $sourceUrl = 'https://github.com' + $url
+    $sourceUrl64 = 'https://github.com' + $url64
+    $version = ($url -split '\/' | select -Index 5).Substring(0)
 
     return @{
         URL = $sourceUrl
@@ -36,4 +36,4 @@ function global:au_GetLatest {
     }
 }
 
-update -ChecksumFor none
+update -ChecksumFor none -NoCheckChocoVersion
