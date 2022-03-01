@@ -8,7 +8,7 @@ location on https://altstore.io/
 and can be verified by doing the following:
 
 1. Download the following (as seen on https://altstore.io/):
-  <https://f000.backblazeb2.com/file/altstore/altinstaller.zip>
+  <https://cdn.altstore.io/file/altstore/altinstaller.zip>
 2. Unzip the archive
 3. Get the checksum of the MSI file, 'AltInstaller.msi', using one of the following methods:
   - Using powershell function 'Get-FileHash'
@@ -16,6 +16,6 @@ and can be verified by doing the following:
 4. The checksum should match the following:
 
   checksum type: sha512
-  checksum: aece725d8d25fc78fa3acf3631c5c8dc0fdc46faea208adf62741a728451495df4bb0103458e0bada40572bf8023abaa7175ad4bdbbcc5538979837134022437
+  checksum: 6c9d5f2cd50af87ecf05d85fb1ba85f9ab723a423fdc73c2c8969155ab35050dc0dc30f2ea7ed5b63e1a99a106a761201b9f2c82021eb2e8d59ed01e38594ad0
 
 The file 'LICENSE.txt' has been obtained from <https://github.com/rileytestut/AltStore/blob/master/LICENSE>

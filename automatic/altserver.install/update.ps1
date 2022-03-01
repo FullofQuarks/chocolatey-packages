@@ -1,6 +1,6 @@
 Import-Module AU
 
-$URL = "https://f000.backblazeb2.com/file/altstore/altinstaller.zip"
+$URL = "https://cdn.altstore.io/file/altstore/altinstaller.zip"
 $rootDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $toolsDir = Join-Path $rootDir "tools"
 $auToolsDir = Join-Path $PSScriptRoot "tools"
