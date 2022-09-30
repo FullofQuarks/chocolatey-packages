@@ -1,6 +1,7 @@
 Import-Module au
+Import-Module -name ..\..\tools\Get-LatestRelease
 
-$releases = 'https://github.com/FullofQuarks/Windows-Ledger-Binaries/releases'
+$releases = 'https://api.github.com/repos/FullofQuarks/Windows-Ledger-Binaries/releases'
 
 function global:au_BeforeUpdate {
     $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL
@@ -14,13 +15,10 @@ function global:au_SearchReplace {
     }
 }
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-
-    $re = 'ledger.exe'
-    $url = $download_page.links | ? href -match $re | select -First 1 -expand href
-    $sourceUrl = 'https://github.com' + $url
-    $version = ($url -split '\/' | select -Index 5).Substring(1)
-
+    $latestRelease_json = Invoke-RestMethod -Uri $releases
+    $sourceUrl = $latestRelease_json[0].assets.browser_download_url
+    $version = $latestRelease_json[0].name
+    
     return @{
         URL = $sourceUrl
         Version = $version

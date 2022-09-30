@@ -1,6 +1,6 @@
 Import-Module au
 
-$releases = 'https://github.com/simonmichael/hledger/releases'
+$releases = 'https://api.github.com/repos/simonmichael/hledger/releases'
 
 function global:au_BeforeUpdate {
     $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha256 $Latest.URL
@@ -14,12 +14,10 @@ function global:au_SearchReplace {
     }
 }
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-
-    $re = 'hledger-windows.zip'
-    $url = $download_page.links | ? href -match $re | select -First 1 -expand href
-    $sourceUrl = 'https://github.com' + $url
-    $version = ($url -split '\/' | select -Index 5).Substring(0)
+    $latestRelease_json = Invoke-RestMethod -Uri $releases
+    $windowsAsset = $latestRelease_json[0].assets | where { $_.name -eq "hledger-windows-x64.zip" }
+    $sourceUrl = $windowsAsset.browser_download_url
+    $version = $latestRelease_json[0].name
 
     return @{
         URL = $sourceUrl

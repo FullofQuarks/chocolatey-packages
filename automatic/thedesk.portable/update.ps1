@@ -18,19 +18,17 @@ function global:au_SearchReplace {
     }
 }
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    $latestReleases_json = Invoke-RestMethod -Uri $releases
+    $windowsAsset = $latestReleases_json[0].assets | where { $_.name -eq "TheDesk-setup-ia32.exe" }
+    $windowsAsset64 = $latestReleases_json[0].assets | where { $_.name -eq "TheDesk-setup.exe" }
 
-    $re = 'TheDesk-ia32.exe'
-    $re64 = 'TheDesk.exe'
-    $url = $download_page.links | ? href -match $re | select -First 1 -expand href
-    $url64 = $download_page.links | ? href -match $re64 | select -First 1 -expand href
-    $sourceUrl = 'https://github.com' + $url
-    $sourceUrl64 = 'https://github.com' + $url64
-    $version = ($url -split '\/' | select -Index 5).Substring(1)
+    $url = $windowsAsset.browser_download_url
+    $url64 = $windowsAsset64.browser_download_url
+    $version = $latestReleases_json[0].tag_name.Substring(1)
 
     return @{
-        URL = $sourceUrl
-        URL64 = $sourceUrl64
+        URL = $url
+        URL64 = $url64
         Version = $version
         ChecksumType32 = 'sha512'
         ChecksumType64 = 'sha512'

@@ -1,6 +1,6 @@
 Import-Module au
 
-$releases = 'https://github.com/h3poteto/whalebird-desktop/releases'
+$releases = 'https://api.github.com/repos/h3poteto/whalebird-desktop/releases'
 
 function global:au_BeforeUpdate() {
     $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL
@@ -19,17 +19,17 @@ function global:au_SearchReplace {
     }
 }
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    $latestReleases_json = Invoke-RestMethod -Uri $releases
+    $windowsAsset = $latestReleases_json[0].assets | where { ($_.name -like "*windows*ia32*") -and ($_.name -notlike "*shasum*")}
+    $windowsAsset64 = $latestReleases_json[0].assets | where { ($_.name -like "*windows*x64*") -and ($_.name -notlike "*shasum*")}
 
-    $url = $download_page.links | ? href -match "windows-ia32" | select -First 1 -expand href
-    $url64 = $download_page.links | ? href -match "windows-x64" | select -First 1 -expand href
-    $sourceUrl = 'https://github.com' + $url
-    $sourceUrl64 = 'https://github.com' + $url64
-    $version = ($url -split '\/' | select -Index 5).Substring(0)
+    $url = $windowsAsset.browser_download_url
+    $url64 = $windowsAsset64.browser_download_url
+    $version = $latestReleases_json[0].name
 
     return @{
-        URL = $sourceUrl
-        URL64 = $sourceUrl64
+        URL = $url
+        URL64 = $url64
         Version = $version
         ChecksumType32 = 'sha512'
         ChecksumType64 = 'sha512'
