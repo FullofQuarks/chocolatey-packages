@@ -1,7 +1,7 @@
 ﻿$packagename = 'coolterm'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url = 'https://freeware.the-meiers.org/CoolTermWin.zip'
-$checksum = '2c4b4749742d8707ba3c7a502090243f9b7db97ff49732b384e4d174a63c1a242accee22cb30f70e0369b63a260f7dbd553e9e3e214c0db75a58d65ab84fdc51'
+$checksum = '45d7d0347384257f54aef6fd2fe36e0f7737f695aa312af4ac22ce46dc635edcd4fb46274cc67dd1ff9bd75b351f94720f5aa31b23cd3169d688c052edab3572'
 $checksumType = 'sha512'
 
 Install-ChocolateyZipPackage -PackageName "$packageName" `
