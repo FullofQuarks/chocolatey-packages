@@ -1,6 +1,6 @@
 Import-Module au
 
-$releases = 'https://github.com/cutls/TheDesk/releases'
+$releases = 'https://api.github.com/repos/cutls/TheDesk/releases'
 
 function global:au_BeforeUpdate {
     $Latest.Checksum32 = Get-RemoteChecksum -Algorithm sha512 $Latest.URL
@@ -19,8 +19,8 @@ function global:au_SearchReplace {
 }
 function global:au_GetLatest {
     $latestReleases_json = Invoke-RestMethod -Uri $releases
-    $windowsAsset = $latestReleases_json[0].assets | where { $_.name -eq "TheDesk-setup-ia32.exe" }
-    $windowsAsset64 = $latestReleases_json[0].assets | where { $_.name -eq "TheDesk-setup.exe" }
+    $windowsAsset = $latestReleases_json[0].assets | where { $_.name -eq "TheDesk-ia32.exe" }
+    $windowsAsset64 = $latestReleases_json[0].assets | where { $_.name -eq "TheDesk.exe" }
 
     $url = $windowsAsset.browser_download_url
     $url64 = $windowsAsset64.browser_download_url
