@@ -1,13 +1,13 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/FullofQuarks/Windows-Ledger-Binaries/releases/download/v3.2.1/ledger.exe'
+$url        = 'https://github.com/FullofQuarks/Windows-Ledger-Binaries/releases/download/v3.3.2/ledger.exe'
 $packageName = 'Ledger'
 
 
 $packageArgs = @{
   packageName   = $packageName
   url           = $url
-  checksum      = '03cdb6e42381369237cd5ba9ff30025bd848e6474f745200036b9f35fb11c5fd93b9b94f9fea58e0dc62999d9b148e9ecbe8cbf3c31c2df70ee684326526a793'
+  checksum      = '6d7ea1964a3f1738587ff81f26121f80ff9b7b9e80026e1ee954ef36fce37c77a93bd369900b813c6be5b2facdbf2104dbabd948ec9908e7c8379c8fa0674cab'
   checksumType  = 'sha512'
   FileFullPath  = "$toolsDir\ledger.exe"
 }
