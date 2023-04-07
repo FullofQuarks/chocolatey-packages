@@ -1,0 +1,20 @@
+name: Automatic Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  update_choco:
+    runs-on: windows-latest
+    
+    steps:
+      - name: actions/checkout@v2.7.0
+        with:
+          ref: master
+      - name: Install Chocolatey Automatic Package Updater Module
+        run: Install-Module -Name AU -Force
