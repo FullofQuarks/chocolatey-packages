@@ -20,3 +20,7 @@ jobs:
           ref: master
       - name: Install Chocolatey Automatic Package Updater Module
         run: Install-Module -Name AU -Force
+      - name: Run update script
+        shell: pwsh
+        run: |
+          .\update_all.ps1
