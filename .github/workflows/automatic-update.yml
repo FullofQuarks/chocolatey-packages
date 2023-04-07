@@ -1,6 +1,7 @@
 name: Automatic Update
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
 
@@ -10,10 +11,11 @@ defaults:
 
 jobs:
   update_choco:
+    name: update_everything
     runs-on: windows-latest
     
     steps:
-      - name: actions/checkout@v2.7.0
+      - uses: actions/checkout@v2.7.0
         with:
           ref: master
       - name: Install Chocolatey Automatic Package Updater Module
