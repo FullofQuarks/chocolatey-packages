@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/simonmichael/hledger/releases/download/hledger-web-1.29.1/hledger-windows-x64.zip'
+$url        = 'https://github.com/simonmichael/hledger/releases/download/1.29.1/hledger-windows-x64.zip'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
