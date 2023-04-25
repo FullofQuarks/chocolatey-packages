@@ -13,6 +13,9 @@ jobs:
   update_choco:
     name: update_everything
     runs-on: windows-latest
+    env:
+      au_Push: true
+      api_key: ${{ secrets.api_key }}
     
     steps:
       - uses: actions/checkout@v2.7.0
@@ -24,9 +27,4 @@ jobs:
         shell: pwsh
         run: |
           .\update_all.ps1
-      - name: Get all created nupkgs
-        id: get-all-packages
-        run: Get-ChildItem -Path ./Documents/ -Filter *.pdf | ForEach-Object { $_.FullName }
-      - uses: actions/upload-artifact@v3.1.2
-        with: ${{ steps.get-all-packages }}
 
