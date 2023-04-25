@@ -30,7 +30,7 @@ jobs:
       - name: Save Artifacts
         uses: actions/upload-artifact@v3
         with:
-          ${{ env.PSScriptRoot}}\Update-AUPackages.md
+          ${{ PSScriptRoot}}\Update-AUPackages.md
           ${{ env.PSScriptRoot}}\Update-History.md
           ${{ env.PSScriptRoot}}\update_info.xml
 
