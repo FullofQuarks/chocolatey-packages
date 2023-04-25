@@ -27,4 +27,9 @@ jobs:
         shell: pwsh
         run: |
           .\update_all.ps1
+      - name: actions/upload-artifact@v3
+        with:
+          $PSScriptRoot\Update-AUPackages.md
+          $PSScriptRoot\Update-History.md
+          $PSScriptRoot\update_info.xml
 
