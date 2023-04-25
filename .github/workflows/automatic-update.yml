@@ -27,7 +27,8 @@ jobs:
         shell: pwsh
         run: |
           .\update_all.ps1
-      - name: actions/upload-artifact@v3
+      - name: Save Artifacts
+        uses: actions/upload-artifact@v3
         with:
           $PSScriptRoot\Update-AUPackages.md
           $PSScriptRoot\Update-History.md
