@@ -19,9 +19,9 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2.7.0
-        name: Checkout and setup git user
         with:
           ref: master
+      - name: Setup git user
         run: |
             git config --global user.name "Chocolatey Automatic Updater"
             git config --global user.email "choco@someemail.com"
