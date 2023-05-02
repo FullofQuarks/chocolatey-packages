@@ -1,5 +1,5 @@
 # Chocolatey Packages
-
+[![Automatic Update](https://github.com/FullofQuarks/chocolatey-packages/actions/workflows/automatic-update.yml/badge.svg?branch=master)](https://github.com/FullofQuarks/chocolatey-packages/actions/workflows/automatic-update.yml)
 ~~~
 <!-- EDIT ME-->
 
