@@ -9,7 +9,7 @@
     <authors>h3poteto</authors>
     <projectUrl>https://whalebird.social/</projectUrl>
     <iconUrl>https://cdn.statically.io/gh/FullofQuarks/chocolatey-packages/master/icons/whalebird.png</iconUrl>
-    <licenseUrl>https://raw.githubusercontent.com/h3poteto/whalebird-desktop/master/LICENSE.txt</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/h3poteto/whalebird-desktop/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/h3poteto/whalebird-desktop</projectSourceUrl>
     <bugTrackerUrl>https://github.com/h3poteto/whalebird-desktop/issues</bugTrackerUrl>
