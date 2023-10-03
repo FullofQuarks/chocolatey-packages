@@ -2,8 +2,8 @@
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName = 'whalebird'
 
-$url64      = 'https://github.com/h3poteto/whalebird-desktop/releases/download/v5.0.7/Whalebird-5.0.7-win-x64.exe'
-$checksum64  = '339fc06f203f5acf754d5b618acd6a018ecf3f8258db60201e651963ef6db7c4f5e52441eafb9f07b6e4d8385863186ab5628e79acfae7c6eeaec9910af09ab9'
+$url64      = 'https://github.com/h3poteto/whalebird-desktop/releases/download/v5.1.0/Whalebird-5.1.0-win-x64.exe'
+$checksum64  = '26946261d7e026f324748a98fb409fb64397210ef2654a4770ab64039fe9b44e05f6ee62fc9a795d347d01296b24ec4943f34108bdd3ca30aa3043eccd36a796'
 
 $packageArgs = @{
   packageName   = $packageName
