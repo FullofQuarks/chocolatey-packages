@@ -33,10 +33,12 @@ jobs:
           git config --global user.email "choco@someemail.com"
 
       - name: Install Chocolatey Automatic Package Updater Module
+        shell: powershell
         run: |
           Install-Module -Name AU -Force -Scope CurrentUser
 
       - name: Run update script
+        shell: powershell
         run: |
           .\update_all.ps1
 
