@@ -3,7 +3,10 @@ name: Automatic Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
 
 defaults:
   run:
@@ -12,31 +15,38 @@ defaults:
 jobs:
   update_choco:
     name: update_everything
-    runs-on: windows-latest
+    runs-on: windows-2022
+
     env:
-      au_Push: true
+      au_Push: "true"
       api_key: ${{ secrets.api_key }}
-    
+
     steps:
-      - uses: actions/checkout@v2.7.0
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           ref: master
+
       - name: Setup git user
         run: |
-            git config --global user.name "Chocolatey Automatic Updater"
-            git config --global user.email "choco@someemail.com"
+          git config --global user.name "Chocolatey Automatic Updater"
+          git config --global user.email "choco@someemail.com"
+
       - name: Install Chocolatey Automatic Package Updater Module
-        run: Install-Module -Name AU -Force
+        run: |
+          Install-Module -Name AU -Force -Scope CurrentUser
+
       - name: Run update script
-        shell: pwsh
         run: |
           .\update_all.ps1
-      - name: Save Artifacts
-        uses: actions/upload-artifact@v3
+
+      - name: Save artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: Results
+          if-no-files-found: warn
           path: |
             Update-AUPackages.md
             Update-History.md
-            pdate_info.xml
-
+            update_info.xml

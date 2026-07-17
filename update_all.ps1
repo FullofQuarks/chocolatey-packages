@@ -1,62 +1,144 @@
-# AU Packages Template: https://github.com/majkinetor/au-packages-template
+<#
+.SYNOPSIS
+    Updates and publishes the automatic Chocolatey packages in this repository.
 
-param([string] $Name, [string] $ForcedPackages, [string] $Root = "$PSScriptRoot\automatic")
+.DESCRIPTION
+    Uses the community-maintained Chocolatey-AU module to check packages under
+    the specified root, update package files, optionally push packages to
+    Chocolatey, generate reports, and persist successful changes to Git.
 
-# Set environment variables
-$Env:gist_id = Write-Host "Update all - $(Get-Date -Format "MM/dd/yyyy")"
+.EXAMPLE
+    .\update_all.ps1
 
-if (Test-Path $PSScriptRoot/update_vars.ps1) { . $PSScriptRoot/update_vars.ps1 }
+.EXAMPLE
+    .\update_all.ps1 -Name ledger
 
-$Options = [ordered]@{
-    Timeout       = 100                                     #Connection timeout in seconds
-    UpdateTimeout = 1200                                    #Update timeout in seconds
-    Threads       = 10                                      #Number of background jobs to use
-    Push          = $Env:au_Push -eq 'true'                 #Push to chocolatey
-    PluginPath    = ''                                      #Path to user plugins
+.EXAMPLE
+    .\update_all.ps1 -ForcedPackages "ledger ledger.portable:3.4.0"
+#>
+
+[CmdletBinding()]
+param(
+    [string[]] $Name,
+
+    [string] $ForcedPackages,
+
+    [ValidateScript({ Test-Path -LiteralPath $_ -PathType Container })]
+    [string] $Root = (Join-Path $PSScriptRoot 'automatic')
+)
+
+$ErrorActionPreference = 'Stop'
+
+Import-Module Chocolatey-AU -ErrorAction Stop
+
+$updateVariablesPath = Join-Path $PSScriptRoot 'update_vars.ps1'
+if (Test-Path -LiteralPath $updateVariablesPath -PathType Leaf) {
+    . $updateVariablesPath
+}
+
+$repository = if ($env:GITHUB_REPOSITORY) {
+    $env:GITHUB_REPOSITORY
+}
+else {
+    $env:github_user_repo
+}
+
+$forcedPackageList = @(
+    $ForcedPackages -split '\s+' |
+        Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+)
+
+$pushPackages = $env:au_Push -eq 'true'
+$gitToken = if ($env:GITHUB_TOKEN) {
+    $env:GITHUB_TOKEN
+}
+else {
+    $env:github_api_key
+}
+
+$options = [ordered]@{
+    WhatIf       = [bool] $au_WhatIf
+    Force        = $false
+    Timeout      = 120
+    UpdateTimeout = 1800
+    Threads      = 5
+    Push         = $pushPackages
+    PushAll      = $true
+    PluginPath   = ''
 
     Report = @{
-        Type = 'markdown'                                   #Report type: markdown or text
-        Path = "$PSScriptRoot\Update-AUPackages.md"         #Path where to save the report
-        Params= @{                                          #Report parameters:
-            Github_UserRepo = $Env:github_user_repo         #  Markdown: shows user info in upper right corner
-            NoAppVeyor  = $false                            #  Markdown: do not show AppVeyor build shield
-            UserMessage = "[History](#update-history)"       #  Markdown, Text: Custom user message to show
-            NoIcons     = $false                            #  Markdown: don't show icon
-            IconSize    = 32                                #  Markdown: icon size
-            Title       = ''                                #  Markdown, Text: TItle of the report, by default 'Update-AUPackages'
+        Type = 'markdown'
+        Path = Join-Path $PSScriptRoot 'Update-AUPackages.md'
+        Params = @{
+            Github_UserRepo = $repository
+            NoAppVeyor      = $true
+            UserMessage     = '[History](#update-history)'
+            NoIcons         = $false
+            IconSize        = 32
+            Title           = 'Chocolatey Package Update Report'
         }
     }
 
     History = @{
-        Lines = 30                                          #Number of lines to show
-        Github_UserRepo = $Env:github_user_repo             #User repo to be link to commits
-        Path = "$PSScriptRoot\Update-History.md"            #Path where to save history
-    }
-
-    Git = @{
-        User     = ''                                       #Git username, leave empty if github api key is used
-        Password = $Env:API_KEY                             #Password if username is not empty, otherwise api key
+        Lines           = 30
+        Github_UserRepo = $repository
+        Path            = Join-Path $PSScriptRoot 'Update-History.md'
     }
 
     RunInfo = @{
-        Exclude = 'password', 'apikey'                      #Option keys which contain those words will be removed
-        Path    = "$PSScriptRoot\update_info.xml"           #Path where to save the run info
+        Exclude = @('password', 'apikey', 'token')
+        Path    = Join-Path $PSScriptRoot 'update_info.xml'
     }
 
-    ForcedPackages = $ForcedPackages -split ' '
-    BeforeEach = {
-        param($PackageName, $Options )
-        $p = $Options.ForcedPackages | ? { $_ -match "^${PackageName}(?:\:(.+))*$" }
-        if (!$p) { return }
+    ForcedPackages = $forcedPackageList
 
-        $global:au_Force   = $true
-        $global:au_Version = ($p -split ':')[1]
+    BeforeEach = {
+        param($PackageName, $Options)
+
+        $escapedPackageName = [regex]::Escape($PackageName)
+        $forcedPackage = $Options.ForcedPackages |
+            Where-Object { $_ -match "^${escapedPackageName}(?::(.+))?$" } |
+            Select-Object -First 1
+
+        if (-not $forcedPackage) {
+            return
+        }
+
+        $global:au_Force = $true
+
+        $separatorIndex = $forcedPackage.IndexOf(':')
+        $global:au_Version = if ($separatorIndex -ge 0) {
+            $forcedPackage.Substring($separatorIndex + 1)
+        }
+        else {
+            $null
+        }
     }
 }
 
-if ($ForcedPackages) { Write-Host "FORCED PACKAGES: $ForcedPackages" }
-$global:au_Root = $Root                                    #Path to the AU packages
-$global:info = updateall -Name $Name -Options $Options
+# The Git plugin persists package/report changes after AU successfully publishes.
+# GitHub Actions supplies GITHUB_TOKEN; local runs may use github_api_key instead.
+if (-not [string]::IsNullOrWhiteSpace($gitToken)) {
+    $options['Git'] = @{
+        User     = ''
+        Password = $gitToken
+    }
+}
+else {
+    Write-Warning 'No GitHub token was found. Package changes will not be committed or pushed to Git.'
+}
 
-#Uncomment to fail the build on AppVeyor on any package error
-#if ($global:info.error_count.total) { throw 'Errors during update' }
+if ($forcedPackageList.Count -gt 0) {
+    Write-Host "Forced packages: $($forcedPackageList -join ', ')"
+}
+
+Write-Host "Package root: $Root"
+Write-Host "Push to Chocolatey: $pushPackages"
+
+$global:au_Root = $Root
+$global:info = Update-AUPackages -Name $Name -Options $options
+
+$errorCount = [int] $global:info.error_count.total
+if ($errorCount -gt 0) {
+    throw "Chocolatey-AU reported $errorCount package update error(s). See Update-AUPackages.md and update_info.xml."
+}
