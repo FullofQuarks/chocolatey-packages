@@ -1,12 +1,12 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/simonmichael/hledger/releases/download/1.32.3/hledger-windows-x64.zip'
+$url        = 'https://github.com/simonmichael/hledger/releases/download/1.99.3/hledger-windows-x64.zip'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
   url           = $url
-  checksum      = '5dc1e960c939de22ad417312828369bedd405308288fc5be6df7d043fa61e81b'
+  checksum      = '2c06d7abde6de04792dd48409c8d36eb2d5d6314a9e13d090eb99de47f06c6fb'
   checksumType  = 'sha256'
 }
 
