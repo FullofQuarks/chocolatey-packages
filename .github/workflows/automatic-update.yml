@@ -20,6 +20,7 @@ jobs:
     env:
       au_Push: "true"
       api_key: ${{ secrets.api_key }}
+      GITHUB_TOKEN: ${{ github.token }}
 
     steps:
       - name: Checkout repository
