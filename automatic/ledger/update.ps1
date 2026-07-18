@@ -1,4 +1,4 @@
-Import-Module Chocolatey-AU -ErrorAction Stop
+Import-Module AU -ErrorAction Stop
 
 $releases = 'https://api.github.com/repos/FullofQuarks/Windows-Ledger-Binaries/releases/latest'
 

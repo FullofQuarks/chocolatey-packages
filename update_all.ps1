@@ -2,8 +2,8 @@
 .SYNOPSIS
     Updates and publishes the automatic Chocolatey packages in this repository.
 
-.DESCRIPTION
-    Uses the community-maintained Chocolatey-AU module to check packages under
+.DESCRIPTIO
+    Uses the community-maintained AU module to check packages under
     the specified root, update package files, optionally push packages to
     Chocolatey, generate reports, and persist successful changes to Git.
 
@@ -29,7 +29,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-Import-Module Chocolatey-AU -ErrorAction Stop
+Import-Module AU -ErrorAction Stop
 
 $updateVariablesPath = Join-Path $PSScriptRoot 'update_vars.ps1'
 if (Test-Path -LiteralPath $updateVariablesPath -PathType Leaf) {
