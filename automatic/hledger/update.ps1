@@ -55,7 +55,7 @@ function global:au_GetLatest {
                 Select-Object -First 1
 
             $streams['prerelease'] = @{
-                Version        = "$prereleaseVersion-pre"
+		Version        = "$($prereleaseVersion)-pre"
                 URL            = $prereleaseAsset.browser_download_url
                 ChecksumType32 = 'sha256'
             }
