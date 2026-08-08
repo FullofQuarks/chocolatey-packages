@@ -16,19 +16,67 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
-    $releasesJson = Invoke-RestMethod -Uri $releases
+    $allReleases = Invoke-RestMethod -Uri $releases
 
-    $latestRelease = $releasesJson |
-        Where-Object { -not $_.prerelease -and -not $_.draft } |
+    $stableRelease = $allReleases |
+        Where-Object {
+            -not $_.draft -and
+            -not $_.prerelease -and
+            ($_.assets.name -contains 'hledger-windows-x64.zip')
+        } |
         Select-Object -First 1
 
-    $windowsAsset = $latestRelease.assets |
-        Where-Object { $_.name -eq "hledger-windows-x64.zip" }
+    if (-not $stableRelease) {
+        throw 'No stable hledger release with a Windows x64 asset was found.'
+    }
 
-    return @{
-        URL            = $windowsAsset.browser_download_url
-        Version        = $latestRelease.tag_name
+    $stableAsset = $stableRelease.assets |
+        Where-Object { $_.name -eq 'hledger-windows-x64.zip' } |
+        Select-Object -First 1
+
+    $stableVersion = Get-Version ($stableRelease.tag_name -replace '^v', '')
+
+    $streams = [ordered]@{}
+
+    $prerelease = $allReleases |
+        Where-Object {
+            -not $_.draft -and
+            $_.prerelease -and
+            ($_.assets.name -contains 'hledger-windows-x64.zip')
+        } |
+        Select-Object -First 1
+
+    if ($prerelease) {
+        $prereleaseVersion = Get-Version ($prerelease.tag_name -replace '^v', '')
+
+        if ($prereleaseVersion -gt $stableVersion) {
+            $prereleaseAsset = $prerelease.assets |
+                Where-Object { $_.name -eq 'hledger-windows-x64.zip' } |
+                Select-Object -First 1
+
+            $streams['prerelease'] = @{
+                Version        = "$prereleaseVersion-pre"
+                URL            = $prereleaseAsset.browser_download_url
+                ChecksumType32 = 'sha256'
+            }
+        }
+    }
+
+    $streams['stable'] = @{
+        Version        = $stableVersion
+        URL            = $stableAsset.browser_download_url
         ChecksumType32 = 'sha256'
+    }
+
+    Write-Host 'Streams discovered:'
+
+    $streams.GetEnumerator() | ForEach-Object {
+        Write-Host "  $($_.Key):"
+	Write-Host "    Version: $($_.Value.Version)"
+	Write-Host "    URL:     $($_.Value.URL)"
+    }
+    return @{
+        Streams = $streams
     }
 }
 
