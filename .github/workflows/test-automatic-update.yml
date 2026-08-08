@@ -1,0 +1,51 @@
+name: Test Automatic Updates
+
+on:
+  pull_request:
+    paths:
+      - "automatic/**"
+      - "update_all.ps1"
+      - "update_vars.ps1"
+      - ".github/workflows/test-automatic-update.yml"
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: powershell
+
+jobs:
+  test-automatic-updates:
+    name: Test AU packages
+    runs-on: windows-2022
+
+    env:
+      au_Push: "false"
+      GITHUB_TOKEN: ""
+      github_api_key: ""
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install AU
+        run: |
+          Install-Module -Name AU -Force -Scope CurrentUser -AllowClobber
+
+      - name: Test automatic updates
+        run: |
+          .\update_all.ps1
+
+      - name: Upload AU results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: au-test-results
+          if-no-files-found: ignore
+          path: |
+            Update-AUPackages.md
+            Update-History.md
+            update_info.xml
