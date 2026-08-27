@@ -16,6 +16,10 @@
     <tags>altserver altstore altkit altplugin ios icloud</tags>
     <summary>AltServer provides AltStore to an iOS device. AltStore is an alternative app store for non-jailbroken iOS devices.</summary>
     <description>AltServer connects to an attached iOS device, to provide a developer-signed application AltStore. AltStore is an iOS application that allows you to sideload other apps (.ipa files) onto your iOS device with just your Apple ID. AltStore resigns apps with your personal development certificate and sends them to a desktop app, AltServer (this application), which installs the resigned apps back to your device using iTunes WiFi sync. To prevent apps from expiring, AltStore will also periodically refresh your apps in the background when on the same WiFi as AltServer.</description>
+    <dependencies>
+      <dependency id="iCloud" version="[7.21.0.23]" />
+      <dependency id="iTunes" version="[12.12.4.1]" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
